@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+      <img src="logo2.png" alt="CTU Logo" class="logo">
+        <div class="ctu-title">Student Management System</div>
+        
+        <!-- Theme Toggle Button -->
+        <div class="toggle">
+            <button onclick="toggleTheme()" class="theme-toggle">Mode</button> <!-- Updated button styling -->
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Left Section: Student Registration -->
+        <div class="left">
+            <h1>Student Registration</h1>
+            <form id="record-form">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="number" id="age" placeholder="Age" required>
+                <input type="text" id="id" placeholder="ID" required>
+                <input type="hidden" id="edit-index" value="-1">
+                <input type="text" id="email" placeholder="Email" required>
+                <button type="submit">Add Record</button>
+                <input type="hidden" id="edit-index" value="-1">
+            </form>
+        </div>
+
+        <!-- Right Section: Search, Sort & Records -->
+        <div class="right">
+            
+            <!-- Search & Sorting -->
+            <div class="search-sort">
+                <input type="text" id="search" placeholder="Search Student">
+                <button id="sortByName" onclick="sortRecords('name')">Sort by Name</button>
+                <button id="sortByAge" onclick="sortRecords('age')">Sort by Age</button>
+            </div>            
+            
+            <!-- Student Records Table -->
+            <h2>Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-user"></i> Name</th>
+                        <th><i class="fas fa-credit-card"></i> Age</th>
+                        <th><i class="fas fa-id-card"></i> ID</th>
+                        <th><i class="fas fa-envelope"></i> Email</th>
+                        <th><i class="fas fa-edit"></i> Edit</th>
+                        <th><i class="fas fa-trash"></i> Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="record-list"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Modal for Editing Records -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Record</h2>
+            <form id="edit-form">
+                <input type="text" id="edit-id" placeholder="ID" required>
+                <input type="text" id="edit-name" placeholder="Name" required>
+                <input type="number" id="edit-age" placeholder="Age" required>
+                <input type="text" id="edit-email" placeholder="Email" required>
+                <input type="hidden" id="edit-index" value="-1">
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,362 @@
+/* Define root variables for theme control */
+:root {
+  --primary-color: #ff6f61; /* Soft coral */
+  --background-color: #ffe2e872; /* Misty rose */
+  --text-color: #9724e3; /* Dark text for contrast */
+}
+
+/* Dark theme overrides */
+.dark-theme {
+  --primary-color: #ff6f61; /* Soft coral */
+  --background-color: #2c2c2c; /* Darker background */
+  --text-color: #ffffff; /* White text for contrast */
+}
+
+/* Body styling to center content */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif; /* Updated font for a softer look */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+  animation: fadeIn 1s ease; /* Fade-in effect for body */
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Main container setup */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  max-width: 1000px; /* Increased max-width */
+  margin: 0 auto;
+  border: 1px solid #ff6f61; /* Soft coral border */
+  padding: 25px; /* Optional: Increased padding */
+  box-shadow: 0px 0px 15px rgba(255, 105, 180, 0.5); /* Soft pink shadow */
+  border-radius: 10px; /* Rounded corners */
+  background-color: var(--pastel-pink); /* Light pink background */
+  animation: slideIn 0.5s ease; /* Slide-in effect for container */
+}
+
+/* Slide-in keyframes */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Left and right sections for layout */
+.left, .right {
+  flex: 1;
+  padding: 10px;
+}
+
+.right {
+  border-left: 1px solid #ccc; /* Adds separation between sections */
+}
+
+/* Heading styles */
+h1 {
+  text-align: left;
+}
+
+/* Table design for structured data */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Removes default spacing */
+}
+
+th, td {
+  border: 1px solid #da46b0;
+  padding: 7px; /* Reduced padding for headers */
+  text-align: center;
+}
+
+th {
+  background-color: #ff9c9c44; /* Highlights table headers */
+}
+
+/* Input field styles */
+input[type='text'], input[type='number'] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Title styling */
+.ctu-title {
+  color: var(--text-color); /* Ensures text color follows theme */
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%); /* Centers title */
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: #9724e3;
+}
+
+/* Logo positioning */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 35px;
+  width: 120px;
+  height: auto;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(45deg, #c6188c, #d442b2); /* Gradient background */
+  position: relative;
+  padding: 8px 8px; /* Reduced padding */
+  display: flex;
+  align-items: center;
+  font-size: 14px; /* Optional: Reduced font size */
+  font-weight: 600;
+  cursor: pointer;
+  border: none; /* No border for a cleaner look */
+  border-radius: 25px; /* Rounded corners */
+  color: white; /* White text */
+  transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+  animation: bounce 0.5s ease; /* Bounce effect for buttons */
+}
+
+/* Bounce keyframes */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Hover effect for buttons */
+button:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background: linear-gradient(45deg, #ffcccb, #ff6f61); /* Change gradient on hover */
+}
+
+button:hover::before {
+  box-shadow: inset 0 0 0 10em rgb(243, 182, 187); /* Adds a background transition */
+}
+
+/* Icon styling */
+i {
+  margin: 5px 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Specific button hover effects */
+#yesBtn:hover {
+  color: rgba(255, 0, 0, 0.492);
+}
+
+#noBtn:hover {
+  color: green;
+}
+
+/* Toggle button positioning */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  background: linear-gradient(45deg, #ff6f61, #ffcccb); /* Girly pop theme */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.5); /* Soft pink shadow */
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect for theme toggle */
+.theme-toggle:hover {
+  background: linear-gradient(45deg, #0056b3, #007bff);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Ripple effect on button click */
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 80%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease-in-out;
+  border-radius: 50%;
+}
+.theme-toggle:active::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
+/* Dark mode styling */
+.dark-mode .theme-toggle {
+  background: linear-gradient(45deg, #222, #444);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .theme-toggle:hover {
+  background: linear-gradient(45deg, #444, #222);
+  box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Stacks sections on smaller screens */
+      max-width: 100%;
+      margin-top: 100px;
+      padding: 15px;
+  }
+
+  .left, .right {
+      flex: 1 1 100%; /* Allow sections to take full width */
+      padding: 10px;
+  }
+
+  .right {
+      border-left: none;
+      border-top: 1px solid #ccc; /* Changes border placement for mobile */
+  }
+
+  input[type='text'], input[type='number'] {
+      width: 100%;
+  }
+
+  .toggle {
+      top: 10px;
+      right: 10px;
+  }
+
+  .theme-toggle {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+
+  /* Adjust title for smaller screens */
+  .ctu-title {
+      font-size: 25px;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      white-space: normal; /* Allows text wrapping */
+  }
+
+  /* Reduce logo size on small screens */
+  .logo {
+      width: 90px;
+      top: 1px;
+      left: 10px;
+  }
+}
+
+/* Search and sort section */
+.search-sort {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Input field in search/sort section */
+.search-sort input {
+  padding: 10px;
+ 
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Search and sort button */
+.search-sort button {
+  padding: 0.5%; /* Reduced padding for slimmer appearance */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Optional: Reduced border radius for sharper look */
+}
+
+/* Hover effect for search button */
+.search-sort button:hover {
+  background-color: #ffd107;
+}
+
+/* Modal for Editing Records */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container{
+  margin-top: 11%;
+}

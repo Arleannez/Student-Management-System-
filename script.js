@@ -65,21 +65,30 @@ recordForm.addEventListener('submit', function (e) {
   const editIndex = parseInt(editIndexInput.value);
 
   if (name && age && email) {
-    if (isDuplicateEmail(email) && editIndex === -1) {
-      alert('Email is already used.');
+    // Check for valid email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please input a valid Email.');
       return;
     }
+
+    // Check for duplicate email
+    if (isDuplicateEmail(email) && editIndex === -1) {
+      alert('Email is already in use.');
+      return;
+    }
+
     if (isDuplicateName(name) && editIndex === -1) {
       alert('Name is already used.');
       return;
     }
-    if (isDuplicateId(idInput.value ) && editIndex === -1) {
+    if (isDuplicateId(idInput.value) && editIndex === -1) {
       alert('ID is already used.');
       return;
     }
 
     if (editIndex === -1) {
-      records.push({ id: idInput.value, name, age, email });
+      records.push({ id: idInput.value.trim(), name, age, email });
     } else {
       records[editIndex] = { name, age, email };
       editIndexInput.value = -1; // Reset edit index
@@ -90,9 +99,12 @@ recordForm.addEventListener('submit', function (e) {
     nameInput.value = '';
     ageInput.value = '';
     emailInput.value = '';
-    let delBtn = document.querySelectorAll('.deleteButton');
-    const recordIndex = records.length - 1; // Get index of newly added record
-    delBtn[recordIndex].innerHTML = `<i id="yesBtn" onclick="confirmDelete(${recordIndex})" class="fa-solid fa-check"></i><i id="noBtn" onclick="resetDelete(${recordIndex})" class="fa-solid fa-xmark"></i>`;
+    idInput.value = ''; // Clear the ID input field
+let delBtn = document.querySelectorAll('.deleteButton');
+delBtn.forEach((button, index) => {
+    button.innerHTML = `<button onclick="deleteRecord(${index})"><i class="fas fa-trash"></i> Delete</button>`;
+});
+
   }
 });
 
